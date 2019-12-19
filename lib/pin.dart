@@ -78,45 +78,53 @@ class _PinState extends State<Pin> {
                 crossAxisCount: 3,
                 children: <Widget>[
                   InkWell(
-                    onTap: () { print('hello'); },
                     child: _CircleContainer(
                       size: 25.0,
                       color: Colors.blue,
+                      text: '1',
                     ),
                   ),
                   _CircleContainer(
                     size: 25.0,
                     color: Colors.blue,
+                    text: '2',
                   ),
                   _CircleContainer(
                     size: 25.0,
                     color: Colors.blue,
-                  ),
-
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                  ),
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                  ),
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
+                    text: '3',
                   ),
 
                   _CircleContainer(
                     size: 25.0,
                     color: Colors.blue,
+                    text: '4',
                   ),
                   _CircleContainer(
                     size: 25.0,
                     color: Colors.blue,
+                    text: '5',
                   ),
                   _CircleContainer(
                     size: 25.0,
                     color: Colors.blue,
+                    text: '6',
+                  ),
+
+                  _CircleContainer(
+                    size: 25.0,
+                    color: Colors.blue,
+                    text: '7',
+                  ),
+                  _CircleContainer(
+                    size: 25.0,
+                    color: Colors.blue,
+                    text: '8',
+                  ),
+                  _CircleContainer(
+                    size: 25.0,
+                    color: Colors.blue,
+                    text: '9',
                   ),
                 ],
               ),
@@ -132,11 +140,13 @@ class _CircleContainer extends StatelessWidget {
   final double size;
   final Color color;
   final BoxBorder border;
+  final String text;
 
   _CircleContainer({
     @required this.size,
     this.color,
     this.border,
+    this.text,
   });
 
   @override
@@ -148,5 +158,6 @@ class _CircleContainer extends StatelessWidget {
       border: border,
       shape: BoxShape.circle,
     ),
+    child: text != null ? Center(child: Text(text)) : null,
   );
 }
