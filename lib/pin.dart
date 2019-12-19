@@ -34,6 +34,21 @@ class _PinState extends State<Pin> {
     }
   }
 
+  _input(String number) {
+    setState(() {
+      _pin = _pin + number;
+    });
+    if (_pin.length == 4) {
+      _validate(_key.currentState.context);
+    }
+  }
+
+  _clear() {
+    setState(() {
+      _pin = '';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,9 +57,12 @@ class _PinState extends State<Pin> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('Enter User Passcode'),
+            Padding(
+              padding: EdgeInsets.only(bottom: 15.0),
+              child: Text('Enter User Passcode'),
+            ),
             Container(
-              width: 210.0,
+              width: 150.0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -73,58 +91,122 @@ class _PinState extends State<Pin> {
             ),
             Container(
               width: 210.0,
-              height: 240.0,
+              height: 310.0,
               child: GridView.count(
                 crossAxisCount: 3,
+                mainAxisSpacing: 9.0,
+                crossAxisSpacing: 9.0,
                 children: <Widget>[
                   InkWell(
+                    onTap: () => this._input('1'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
                     child: _CircleContainer(
                       size: 25.0,
-                      color: Colors.blue,
+                      border: Border.all(color: Colors.blue),
                       text: '1',
                     ),
                   ),
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                    text: '2',
+                  InkWell(
+                    onTap: () => this._input('2'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '2',
+                    ),
                   ),
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                    text: '3',
-                  ),
-
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                    text: '4',
-                  ),
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                    text: '5',
-                  ),
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                    text: '6',
+                  InkWell(
+                    onTap: () => this._input('3'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '3',
+                    ),
                   ),
 
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                    text: '7',
+                  InkWell(
+                    onTap: () => this._input('4'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '4',
+                    ), 
                   ),
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                    text: '8',
+                  InkWell(
+                    onTap: () => this._input('5'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '5',
+                    ), 
                   ),
-                  _CircleContainer(
-                    size: 25.0,
-                    color: Colors.blue,
-                    text: '9',
+                  InkWell(
+                    onTap: () => this._input('6'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '6',
+                    ), 
+                  ),
+                  InkWell(
+                    onTap: () => this._input('7'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '7',
+                    ), 
+                  ),
+                  InkWell(
+                    onTap: () => this._input('8'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '8',
+                    ), 
+                  ),
+                  InkWell(
+                    onTap: () => this._input('9'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '9',
+                    ), 
+                  ),
+                  Container(),
+                  InkWell(
+                    onTap: () => this._input('0'),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      border: Border.all(color: Colors.blue),
+                      text: '0',
+                    ), 
+                  ),
+                  InkWell(
+                    onTap: () => this._clear(),
+                    customBorder: CircleBorder(),
+                    splashColor: Colors.blue,
+                    child: _CircleContainer(
+                      size: 25.0,
+                      text: 'Clear',
+                    ), 
                   ),
                 ],
               ),
