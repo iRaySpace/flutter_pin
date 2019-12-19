@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'pin.dart';
+import 'home.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +11,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Pin',
-      home: Pin(),
+      home: Pin(
+        validPin: '0000',
+        toRoute: (_) => Home(),
+      ),
     );
   }
 }
